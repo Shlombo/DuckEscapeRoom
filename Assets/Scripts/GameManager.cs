@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start() and Update() methods deleted - we don't need them right now
 
     public static GameManager Instance;
+    public bool slotGameDone;
 
     private void Awake()
     {
@@ -15,7 +15,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        slotGameDone = false;
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        
     }
 }
