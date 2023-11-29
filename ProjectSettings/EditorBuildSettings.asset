@@ -26,16 +26,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CodePuzzleCompletion.unity
     guid: e17d456f263f10b4299f804f425c0b45
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SlotGame.unity
     guid: 82b537ec05495a84592f14c8e4acccb5
-  - enabled: 1
-    path: Assets/Scenes/Chess_Level 2.unity
-    guid: 1f3b57513ca044909854e980d539f34b
   - enabled: 1
     path: Assets/Scenes/Chess_Level 1.unity
     guid: dc81101e58f8244f9b4ebe0781b13568
   - enabled: 1
+    path: Assets/Scenes/Chess_Level 2.unity
+    guid: 1f3b57513ca044909854e980d539f34b
+  - enabled: 0
     path: Assets/Scenes/Chess_Level 3.unity
     guid: 2d81fda9acf4044349a61d9c5b268692
+  - enabled: 1
+    path: Assets/Scenes/GameComplete.unity
+    guid: 0ffdf685f42cdcc479a310405bda2ea3
   m_configObjects: {}
