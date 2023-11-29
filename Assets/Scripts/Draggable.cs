@@ -37,6 +37,7 @@ public class Draggable : MonoBehaviour
         } else {
             if(onSlot) {
                 transform.position = closestSlot.transform.position;
+                closestSlot.GetComponent<Slot>().item = this;
             }
         }
     }
@@ -56,6 +57,7 @@ public class Draggable : MonoBehaviour
         if(collision.gameObject.tag == "Slot") {
             Debug.Log("CollidingExit");
             onSlot = false;
+            closestSlot.GetComponent<Slot>().item = null;
         }
 
     }
