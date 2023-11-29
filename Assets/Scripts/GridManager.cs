@@ -16,7 +16,7 @@ public class GridManager : MonoBehaviour
 
     private void GenerateGrid()
     {
-        GameObject referenceTile = (GameObject)Instantiate(Resources.Load("Tile"));
+        GameObject referenceTile = (GameObject)Instantiate(Resources.Load("DuckTile"));
 
         for (int i = 0; i < rows; i++)
         {
