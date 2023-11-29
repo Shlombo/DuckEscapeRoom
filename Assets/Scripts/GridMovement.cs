@@ -52,6 +52,7 @@ public class GridMovement : MonoBehaviour
         {
             System.Threading.Thread.Sleep(250);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameManager.Instance.codePuzzleDone = true;
         }
 
         if (Input.GetKey(KeyCode.DownArrow) && !isMoving)
