@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public bool slotGameDone;
+    public bool chessGameDone;
+    public bool mapGameDone;
 
     private void Awake()
     {
@@ -16,6 +18,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         slotGameDone = false;
+        chessGameDone = false;
+        mapGameDone = false;
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }

@@ -148,11 +148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.25
+      value: -7.18
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.46
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.z
@@ -752,11 +752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.24
+      value: -8.35
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4000001
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.z
@@ -982,10 +982,10 @@ MonoBehaviour:
   slot4: {fileID: 2105508696}
   slot5: {fileID: 247946611}
   correct1: {fileID: 2057981336}
-  correct2: {fileID: 840515045}
-  correct3: {fileID: 249293422}
-  correct4: {fileID: 2084365712}
-  correct5: {fileID: 1727660977}
+  correct2: {fileID: 1727660977}
+  correct3: {fileID: 2084365712}
+  correct4: {fileID: 840515045}
+  correct5: {fileID: 249293422}
 --- !u!4 &601037480
 Transform:
   m_ObjectHideFlags: 0
@@ -1403,11 +1403,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.56
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1476,11 +1476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.12
+      value: -4.73
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.36
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1798,6 +1798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotGameDone: 0
+  chessGameDone: 0
+  mapGameDone: 0
 --- !u!114 &1727660977 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1227629483997226537, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
@@ -1952,7 +1954,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2331,11 +2333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.22
+      value: -5.98
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.44
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 1227629483997226534, guid: 35f1cf46f0327bf488cb2321f0609313, type: 3}
       propertyPath: m_LocalPosition.z
