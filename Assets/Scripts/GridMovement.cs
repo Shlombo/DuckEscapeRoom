@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GridMovement : MonoBehaviour
 {
@@ -15,8 +16,6 @@ public class GridMovement : MonoBehaviour
     private bool faceRight;
     private bool faceUp;
     private bool faceDown;
-
-    private bool justRespawned;
 
     private KeyCode[] solution =
     {
@@ -41,8 +40,6 @@ public class GridMovement : MonoBehaviour
         faceUp = false;
         faceDown = true;
 
-        justRespawned = false;
-
         spawnPosition = transform.position;
         spawnRotation = transform.rotation;
     }
@@ -50,6 +47,13 @@ public class GridMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (solutionIndex == 11 && !isMoving)
+        {
+            System.Threading.Thread.Sleep(250);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
         if (Input.GetKey(KeyCode.DownArrow) && !isMoving)
         {
             if (solution[solutionIndex] == KeyCode.DownArrow)
@@ -70,7 +74,7 @@ public class GridMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) && !isMoving && !justRespawned)
+        if (Input.GetKey(KeyCode.UpArrow) && !isMoving)
         {
             if (solution[solutionIndex] == KeyCode.UpArrow)
             {

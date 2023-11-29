@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public bool slotGameDone;
+    public bool codePuzzleDone;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        codePuzzleDone = false;
         slotGameDone = false;
         Instance = this;
         DontDestroyOnLoad(gameObject);
