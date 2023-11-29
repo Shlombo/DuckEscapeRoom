@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d374925959a154ea5dfd59675ae266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Chess_Level 1
 --- !u!61 &631516560
 BoxCollider2D:
   m_ObjectHideFlags: 0

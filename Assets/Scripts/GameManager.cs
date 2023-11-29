@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool slotGameDone;
     public bool chessGameDone;
-    public bool mapGameDone;
     public bool codePuzzleDone;
 
     private void Awake()
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
         codePuzzleDone = false;
         slotGameDone = false;
         chessGameDone = false;
-        mapGameDone = false;
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
