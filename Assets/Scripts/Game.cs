@@ -6,28 +6,24 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
-    //Reference from Unity IDE
+	//References to objects in our Unity Scene
     public GameObject chesspiece;
+    public int level;
 
-    //Matrices needed, positions of each of the GameObjects
-    //Also separate arrays for the players in order to easily keep track of them all
-    //Keep in mind that the same objects are going to be in "positions" and "playerBlack"/"playerWhite"
+    //Positions of each of the GameObjects
     private GameObject[,] positions = new GameObject[6, 6];
     private GameObject[] playerBlack = new GameObject[16];
     private GameObject[] playerWhite = new GameObject[16];
 
-    //current turn
+    //Current Turn
     private string currentPlayer = "white";
 
     //Game Ending
     private bool gameOver = false;
     
+    //Counter for Goose pieces taken, used for win condition
     public int enemyKillCount = 0;
-    
-    public int level;
 
-    //Unity calls this right when the game starts, there are a few built in functions
-    //that Unity can call for you
     public void Start()
     {
         playerWhite = new GameObject[] { Create("white_bishop", 0, 0) };
@@ -48,10 +44,10 @@ public class Game : MonoBehaviour
 
         //Set all piece positions on the positions board
         
+        SetPosition(playerWhite[0]);
         for (int i = 0; i < playerBlack.Length; i++)
         {
             SetPosition(playerBlack[i]);
-            SetPosition(playerWhite[i]);
         }
     }
 
@@ -63,8 +59,8 @@ public class Game : MonoBehaviour
     public GameObject Create(string name, int x, int y)
     {
         GameObject obj = Instantiate(chesspiece, new Vector3(0, 0, -1), Quaternion.identity);
-        Chessman cm = obj.GetComponent<Chessman>(); //We have access to the GameObject, we need the script
-        cm.name = name; //This is a built in variable that Unity has, so we did not have to declare it before
+        Chessman cm = obj.GetComponent<Chessman>();
+        cm.name = name; 
         cm.SetXBoard(x);
         cm.SetYBoard(y);
         cm.Activate(); //It has everything set up so it can now Activate()
@@ -108,38 +104,55 @@ public class Game : MonoBehaviour
     public void NextTurn()
     {   
     	for (int i = 0; i < playerBlack.Length; i++)
-       		{
-       			currentPlayer = "black";
-        		if ( playerBlack[i] != null )
-        		{
-        			GameObject obj = playerBlack[i];
-        			Chessman cm = obj.GetComponent<Chessman>(); //We have access to the GameObject, we need the script
-        			cm.InitiateMovePlates();
-        		}
+       	{
+       		//Checks all black pieces to see if white bishop is in check
+       		currentPlayer = "black";
+        	if ( playerBlack[i] != null )
+        	{
+        		GameObject obj = playerBlack[i];
+        		Chessman cm = obj.GetComponent<Chessman>();
+        		cm.InitiateMovePlates();
+        		
+        		if (!gameOver) cm.DestroyMovePlates();
         	}
+        }
         
         currentPlayer = "white";
     }
 
     public void Update()
     {
+    	//Used for win condition
 		if (enemyKillCount == playerBlack.Length)
 		{
 			System.Threading.Thread.Sleep(250);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+<<<<<<< Updated upstream
 		}        
+=======
+		}    
+		
+		//Used for win condition, edge case for Level 3
+		if (level == 3 && enemyKillCount == 2)
+		{
+			System.Threading.Thread.Sleep(250);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		}
+		
+		//Reloads game
+		if (gameOver == true && Input.GetMouseButtonDown(0))
+        {
+            gameOver = false;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+>>>>>>> Stashed changes
     }
     
     public void Winner(string playerWinner)
     {
         gameOver = true;
-        //Using UnityEngine.UI is needed here
-        GameObject.FindGameObjectWithTag("WinnerText").GetComponent<Text>().enabled = true;
-        if (currentPlayer == "black") {
-        	GameObject.FindGameObjectWithTag("WinnerText").GetComponent<Text>().text = "You Lose :(";
-		} else {
-			GameObject.FindGameObjectWithTag("WinnerText").GetComponent<Text>().text = "You Win!";
-		}
-        //GameObject.FindGameObjectWithTag("RestartText").GetComponent<Text>().enabled = true;
+
+        if (playerWinner == "black") GameObject.FindGameObjectWithTag("RestartText").GetComponent<Text>().enabled = true;
     }
 }
