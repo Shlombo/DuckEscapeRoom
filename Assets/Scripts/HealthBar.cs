@@ -25,7 +25,7 @@ public class HealthBar : MonoBehaviour
             onFail();
         }
         takeDamage((Mathf.Sqrt(Mathf.Pow(currentMousePosition.x - oldMousePosition.x, 2) + Mathf.Pow(currentMousePosition.y - oldMousePosition.y, 2))) / 10f);
-        // addHealth(0.01f);
+        addHealth(0.01f);
         oldMousePosition = currentMousePosition;
     }
 
