@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public bool slotGameDone;
     public bool chessGameDone;
     public bool codePuzzleDone;
+    public bool disentanglementPuzzleDone;
 
     private void Awake()
     {
@@ -17,11 +18,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         codePuzzleDone = false;
         slotGameDone = false;
         chessGameDone = false;
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        disentanglementPuzzleDone = false;
     }
 
     void Update()

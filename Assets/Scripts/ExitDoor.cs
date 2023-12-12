@@ -8,7 +8,7 @@ public class ExitDoor : MonoBehaviour
     public string sceneToLoad;
     void OnMouseDown()
     {
-        if(GameManager.Instance.slotGameDone && GameManager.Instance.chessGameDone && GameManager.Instance.codePuzzleDone) {
+        if(GameManager.Instance.slotGameDone && GameManager.Instance.chessGameDone && GameManager.Instance.codePuzzleDone && GameManager.Instance.disentanglementPuzzleDone) {
             SceneManager.LoadScene(sceneToLoad);
         } else {
 
