@@ -134,6 +134,8 @@ public class Game : MonoBehaviour
 		{
 			System.Threading.Thread.Sleep(250);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			
+			GameManager.Instance.chessGameDone = true;
 		}
 		
 		//Reloads game
