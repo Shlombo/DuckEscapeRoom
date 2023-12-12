@@ -56,12 +56,12 @@ public class MovePlate : MonoBehaviour
 
         //Update the matrix
         controller.GetComponent<Game>().SetPosition(reference);
+        
+        //Destroy the move plates including self
+        reference.GetComponent<Chessman>().DestroyMovePlates();
 
         //Switch Current Player
         controller.GetComponent<Game>().NextTurn();
-
-        //Destroy the move plates including self
-        reference.GetComponent<Chessman>().DestroyMovePlates();
     }
 
     public void SetCoords(int x, int y)

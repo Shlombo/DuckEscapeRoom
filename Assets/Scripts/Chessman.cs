@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Chessman : MonoBehaviour
 {
@@ -35,11 +36,6 @@ public class Chessman : MonoBehaviour
             case "black_rook": this.GetComponent<SpriteRenderer>().sprite = black_rook; player = "black"; break;
             case "white_bishop": this.GetComponent<SpriteRenderer>().sprite = white_bishop; player = "white"; break;
         }
-    }
-    
-    public void Update()
-    {
-
     }
 
     public void SetCoords()
@@ -98,7 +94,7 @@ public class Chessman : MonoBehaviour
         GameObject[] movePlates = GameObject.FindGameObjectsWithTag("MovePlate");
         for (int i = 0; i < movePlates.Length; i++)
         {
-            Destroy(movePlates[i]); //Be careful with this function "Destroy" it is asynchronous
+            Destroy(movePlates[i]);
         }
     }
 
@@ -117,9 +113,6 @@ public class Chessman : MonoBehaviour
                 LineMovePlate(-1, 1);
                 LineMovePlate(1, -1);
                 break;
-            case "black_knight":
-            case "white_knight":
-                break;
             case "black_bishop":
             case "white_bishop":
                 LineMovePlate(1, 1);
@@ -127,21 +120,12 @@ public class Chessman : MonoBehaviour
                 LineMovePlate(-1, 1);
                 LineMovePlate(-1, -1);
                 break;
-            case "black_king":
-            case "white_king":
-                break;
             case "black_rook":
             case "white_rook":
                 LineMovePlate(1, 0);
                 LineMovePlate(0, 1);
                 LineMovePlate(-1, 0);
                 LineMovePlate(0, -1);
-                break;
-            case "black_pawn":
-                PawnMovePlate(xBoard, yBoard - 1);
-                break;
-            case "white_pawn":
-                PawnMovePlate(xBoard, yBoard + 1);
                 break;
         }
     }
@@ -163,33 +147,16 @@ public class Chessman : MonoBehaviour
         if (sc.PositionOnBoard(x, y) && sc.GetPosition(x, y).GetComponent<Chessman>().player != player)
         {
             MovePlateAttackSpawn(x, y);
+            
+            // Ends the game if the white bishop is put in check
             if (player == "black")
             {
             	sc.Winner("black");
+            	
+            	GameObject.FindGameObjectWithTag("RestartText").GetComponent<Text>().enabled = true;
             }
         }
-    }
-
-    public void PawnMovePlate(int x, int y)
-    {
-        Game sc = controller.GetComponent<Game>();
-        if (sc.PositionOnBoard(x, y))
-        {
-            if (sc.GetPosition(x, y) == null)
-            {
-                MovePlateSpawn(x, y);
-            }
-
-            if (sc.PositionOnBoard(x + 1, y) && sc.GetPosition(x + 1, y) != null && sc.GetPosition(x + 1, y).GetComponent<Chessman>().player != player)
-            {
-                MovePlateAttackSpawn(x + 1, y);
-            }
-
-            if (sc.PositionOnBoard(x - 1, y) && sc.GetPosition(x - 1, y) != null && sc.GetPosition(x - 1, y).GetComponent<Chessman>().player != player)
-            {
-                MovePlateAttackSpawn(x - 1, y);
-            }
-        }
+        
     }
 
     public void MovePlateSpawn(int matrixX, int matrixY)
